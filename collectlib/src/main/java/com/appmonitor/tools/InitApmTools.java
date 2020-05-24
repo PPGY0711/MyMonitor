@@ -114,7 +114,7 @@ public class InitApmTools {
                                 catonObject.put("uiCatonTime",blockArgs[0]);
                                 catonObject.put("uiRunTime",blockArgs[1]);
                             }
-                            catonObject.put("reportTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+                            catonObject.put("reportTime", DateUtils.getFormatTime(new Date()));
                             catonObject.put("deviceInfo", HardwareTools.getHardwareInfo(context));
                         }catch (Exception e){
                             e.printStackTrace();

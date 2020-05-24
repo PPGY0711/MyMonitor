@@ -2,6 +2,7 @@ package com.appmonitor.json;
 
 import android.webkit.JavascriptInterface;
 import com.appmonitor.adapter.JsonAdapter;
+import com.appmonitor.tools.DateUtils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,7 +31,7 @@ public class LoadingJSObject {
     public JSONObject parseLoadingJSONObject(String jsonInfo){
         try {
             JSONObject jsonObject = new JSONObject(jsonInfo);
-            jsonObject.put("reportTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+            jsonObject.put("reportTime", DateUtils.getFormatTime(new Date()));
             JSONObject payload = jsonObject.getJSONObject("payload");
             JSONObject navigationTiming = payload.getJSONObject("navigationTiming");
             JSONObject performanceCounting = new JSONObject();

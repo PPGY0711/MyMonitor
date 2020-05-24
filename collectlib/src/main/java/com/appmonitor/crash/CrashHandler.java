@@ -3,6 +3,7 @@ package com.appmonitor.crash;
 import android.app.ActivityManager;
 import android.content.Context;
 import com.appmonitor.adapter.JsonAdapter;
+import com.appmonitor.tools.DateUtils;
 import com.appmonitor.tools.ExitTools;
 
 import org.json.JSONObject;
@@ -348,7 +349,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * 得到程序崩溃的详细信息
      */
     public JSONObject getCrashInfo(Throwable ex) {
-        crashInfo.put("reportTime",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        crashInfo.put("reportTime", DateUtils.getFormatTime(new Date()));
         crashInfo.put("type","javaCrash");
         crashInfo.put("crashMessage", ex.getMessage());
 //        crashInfo.put("crashLocaleMessage" ,ex.getLocalizedMessage());
