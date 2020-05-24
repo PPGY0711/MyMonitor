@@ -1,0 +1,38 @@
+apply plugin: 'java-gradle-plugin'
+
+gradlePlugin {
+    plugins {
+        AsmPlugin {
+            id = 'com.appmonitor.agent'
+            implementationClass = 'com.appmonitor.asmplugin.AsmPlugin'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.tools.build:gradle:3.5.2'
+    implementation('com.quinn.hunter:hunter-transform:0.9.3') {
+        exclude group: 'com.android.tools.build'
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+}
+
+
+apply plugin: 'maven'
+
+group='com.appmonitor.plugin'
+version='1.0.0'
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('D:/Android/repos'))
+        }
+    }
+}

@@ -1,0 +1,2 @@
+include ':app', ':asmplugin', ':collectlib'
+rootProject.name='MyMonitor'
