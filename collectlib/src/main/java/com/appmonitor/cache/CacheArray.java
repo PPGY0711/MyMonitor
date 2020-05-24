@@ -50,14 +50,25 @@ public class CacheArray {
             System.out.println("which one to upload: " + type);
             switch (type){
                 case "WebViewMonitor_error":
+                    uploadToCertainArray(type, msg, uploadErrorArray);
+                    break;
                 case "WebViewMonitor_ajax":
+                    uploadToCertainArray(type, msg, uploadAjaxArray);
+                    break;
                 case "WebViewMonitor_click":
+                    uploadToCertainArray(type, msg, uploadClickArray);
+                    break;
                 case "WebViewMonitor_resourceTiming":
+                    uploadToCertainArray(type, msg, uploadTimingArray);
+                    break;
                 case "javaCrash":
+                    uploadToCertainArray(type, msg, uploadCrashArray);
+                    break;
                 case "catonError":
-                case "anrError":
-                default:
                     uploadToCertainArray(type, msg, uploadCatonArray);
+                    break;
+                case "anrError":
+                    uploadToCertainArray(type, msg, uploadAnrArray);
                     break;
             }
         }catch (Exception e){
