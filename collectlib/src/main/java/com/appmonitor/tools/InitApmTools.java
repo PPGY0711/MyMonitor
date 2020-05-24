@@ -62,7 +62,7 @@ public class InitApmTools {
         return application;
     }
 
-    public static Caton.Builder registerCatonMonitor(Context context, Caton.MonitorMode mode){
+    public static Caton.Builder registerCatonMonitor(final Context context, Caton.MonitorMode mode){
         Caton.Builder builder = new Caton.Builder(context)
                 .monitorMode(mode)//默认监测模式为Caton.MonitorMode.LOOPER，这样指定Caton.MonitorMode.FRAME
                 .loggingEnabled(true)// 是否打印log
@@ -114,10 +114,11 @@ public class InitApmTools {
                                 catonObject.put("uiCatonTime",blockArgs[0]);
                                 catonObject.put("uiRunTime",blockArgs[1]);
                             }
+                            catonObject.put("reportTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+                            catonObject.put("deviceInfo", HardwareTools.getHardwareInfo(context));
                         }catch (Exception e){
                             e.printStackTrace();
                         }
-                        System.out.println("\n----------------- Caton Error Happened! ------------------\n");
                         ArrayList<JSONObject> list = new ArrayList<>();
                         list.add(catonObject);
                         saveCatchInfo2File(list);

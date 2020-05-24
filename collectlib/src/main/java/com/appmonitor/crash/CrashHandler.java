@@ -348,6 +348,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * 得到程序崩溃的详细信息
      */
     public JSONObject getCrashInfo(Throwable ex) {
+        crashInfo.put("reportTime",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         crashInfo.put("type","javaCrash");
         crashInfo.put("crashMessage", ex.getMessage());
 //        crashInfo.put("crashLocaleMessage" ,ex.getLocalizedMessage());

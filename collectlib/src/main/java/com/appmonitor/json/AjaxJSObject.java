@@ -4,6 +4,8 @@ import android.webkit.JavascriptInterface;
 import com.appmonitor.adapter.JsonAdapter;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+
 public class AjaxJSObject {
     @JavascriptInterface
     public void sendAjaxInfo(String jsonInfo){
@@ -23,8 +25,8 @@ public class AjaxJSObject {
 
     private JSONObject parseAjaxJSONObject(String jsonInfo){
         try{
-//            JSONArray jsonArray = new JSONArray(jsonInfo);
             JSONObject jsonObject = new JSONObject(jsonInfo);
+            jsonObject.put("reportTime", new SimpleDateFormat().format("yyyy-MM-dd HH:mm:ss"));
             JSONObject payload = jsonObject.getJSONObject("payload");
             JSONObject performanceCounting = new JSONObject();
             long res_time = payload.getLong("res_time");

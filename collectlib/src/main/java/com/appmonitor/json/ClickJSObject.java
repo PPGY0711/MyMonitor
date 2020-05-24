@@ -4,6 +4,8 @@ import android.webkit.JavascriptInterface;
 import com.appmonitor.adapter.JsonAdapter;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+
 public class ClickJSObject {
     @JavascriptInterface
     public void sendClickInfo(String jsonInfo){
@@ -23,7 +25,9 @@ public class ClickJSObject {
 
     private JSONObject parseClickJSONObject(String jsonInfo){
         try{
-            return new JSONObject(jsonInfo);
+            JSONObject jsonObject =  new JSONObject(jsonInfo);
+            jsonObject.put("reportTime", new SimpleDateFormat().format("yyyy-MM-dd HH:mm:ss"));
+            return jsonObject;
         }catch (Exception e){
             e.printStackTrace();
         }

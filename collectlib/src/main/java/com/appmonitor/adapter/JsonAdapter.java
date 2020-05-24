@@ -39,7 +39,7 @@ public class JsonAdapter {
             handleMsg.put("deviceInfo",this.deviceInfo);
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             dateFormat.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
-            handleMsg.put("reportTime",dateFormat.format(new Date()));
+//            handleMsg.put("reportTime",dateFormat.format(new Date()));
             return handleMsg;
         }catch (Exception e){
             e.printStackTrace();

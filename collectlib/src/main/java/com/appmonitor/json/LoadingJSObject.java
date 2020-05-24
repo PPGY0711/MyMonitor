@@ -6,6 +6,8 @@ import com.appmonitor.adapter.JsonAdapter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+
 
 public class LoadingJSObject {
     @JavascriptInterface
@@ -27,6 +29,7 @@ public class LoadingJSObject {
     public JSONObject parseLoadingJSONObject(String jsonInfo){
         try {
             JSONObject jsonObject = new JSONObject(jsonInfo);
+            jsonObject.put("reportTime", new SimpleDateFormat().format("yyyy-MM-dd HH:mm:ss"));
             JSONObject payload = jsonObject.getJSONObject("payload");
             JSONObject navigationTiming = payload.getJSONObject("navigationTiming");
             JSONObject performanceCounting = new JSONObject();

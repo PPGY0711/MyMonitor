@@ -4,6 +4,8 @@ import android.webkit.JavascriptInterface;
 import com.appmonitor.adapter.JsonAdapter;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+
 public class ErrorJSObject {
     @JavascriptInterface
     public void sendErrorInfo(String jsonInfo){
@@ -25,7 +27,9 @@ public class ErrorJSObject {
 
     private JSONObject parseErrorJSONObject(String jsonInfo){
         try{
-            return new JSONObject(jsonInfo);
+            JSONObject jsonObject =  new JSONObject(jsonInfo);
+            jsonObject.put("reportTime", new SimpleDateFormat().format("yyyy-MM-dd HH:mm:ss"));
+            return jsonObject;
         }catch (Exception e){
             e.printStackTrace();
         }
