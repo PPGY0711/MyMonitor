@@ -387,4 +387,4 @@ function readXPath(element) {
     e.startWebViewMonitor();
     e.addCollectEvent();
     console.log("Execute the functions");
-} (this);
+}) (this);
