@@ -127,7 +127,7 @@ public class LoadingJSObject {
                 double requestStart = resourceObject.getDouble("requestStart");
                 double responseEnd = resourceObject.getDouble("responseEnd");
                 double responseStart = resourceObject.getDouble("responseStart");
-                double secureConnectionStart = resourceObject.getDouble("secureConncectionStart");
+//                double secureConnectionStart = resourceObject.getDouble("secureConncectionStart");
                 double startTime = resourceObject.getDouble("startTime");
                 jsonObject.put("redirectTime", redirectEnd-redirectStart);
                 jsonObject.put("appcacheTime",domainLookupStart-fetchStart);

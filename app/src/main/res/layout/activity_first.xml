@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:onClick="onClickToSecondActivity"
+            android:onClick="onClick"
             android:text="Jump To Second Activity"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -46,24 +46,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:onClick="onClickToMainActivity"
+            android:onClick="onClick"
             android:text="Jump To Main Activity"
             android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/generateCatonCrash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:layout_marginBottom="20dp"
+            android:text="Generate Caton Crash" />
 
         <Button
             android:id="@+id/generateUiANRCrashBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:onClick="onClickUiThreadGenerateANRCrash"
+            android:onClick="onClick"
             android:text="generate ANR Crash" />
-
-        <Button
-            android:id="@+id/generateCatonCrash"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickGenerateCatonCrash"
-            android:text="Generate Caton Crash" />
 
 
     </LinearLayout>
