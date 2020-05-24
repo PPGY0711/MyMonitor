@@ -37,6 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:onClick="onClick"
             android:text="Jump To Second Activity"
             android:textColor="@color/colorPrimaryDark" />
@@ -45,6 +47,8 @@
             android:id="@+id/JumpToMainActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
             android:onClick="onClick"
             android:text="Jump To Main Activity"
@@ -54,6 +58,8 @@
             android:id="@+id/generateCatonCrash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:onClick="onClick"
             android:layout_marginBottom="20dp"
             android:text="Generate Caton Crash" />
@@ -63,6 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:onClick="onClick"
             android:text="generate ANR Crash" />
 

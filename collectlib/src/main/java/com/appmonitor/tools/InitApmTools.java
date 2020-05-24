@@ -3,6 +3,8 @@ package com.appmonitor.tools;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Environment;
+import android.util.Log;
 
 import com.appmonitor.adapter.JsonAdapter;
 import com.appmonitor.cache.CacheArray;
@@ -12,11 +14,17 @@ import com.appmonitor.threads.PermissionThread;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.appmonitor.caton.Caton.DEFAULT_COLLECT_INTERVAL;
 import static com.appmonitor.caton.Caton.DEFAULT_THRESHOLD_TIME;
+import static com.appmonitor.crash.CrashHandler.TAG;
 
 public class InitApmTools {
 
@@ -110,11 +118,62 @@ public class InitApmTools {
                             e.printStackTrace();
                         }
                         System.out.println("\n----------------- Caton Error Happened! ------------------\n");
-                        CacheArray.addToCacheArray(catonObject);
+                        ArrayList<JSONObject> list = new ArrayList<>();
+                        list.add(catonObject);
+                        saveCatchInfo2File(list);
+                        //为了防止程序卡顿异常直接退出，这里直接写到log文件当中，下一次启动后再重传
                     }
                 });
         Caton.initialize(builder);
         return builder;
     }
 
+    /**
+     * 保存错误信息到文件中
+     *
+     * @param jsonObjectList
+     * @return 文件名称
+     */
+    private static String saveCatchInfo2File(List<JSONObject> jsonObjectList) {
+        StringBuffer sb = new StringBuffer();
+        String type = "unknown";
+        try {
+            type = jsonObjectList.get(0).getString("type");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        for(JSONObject jsonObject: jsonObjectList){
+            Log.i(TAG,"---------------------write record--------------------" );
+            sb.append("\n========================= start =========================\n");
+            sb.append(jsonObject);
+            sb.append("\n========================= end =========================\n");
+        }
+        return saveInfo2File(sb,type);
+    }
+
+    private static String saveInfo2File(StringBuffer sb,String type){
+        try {
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+            long timestamp = System.currentTimeMillis();
+            String time = formatter.format(new Date());
+            String fileName = type + "-" + time + "-" + timestamp + ".txt";
+            System.out.println("fileName :" + fileName + "\n");
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator+ "appmonitor" + File.separator + type + File.separator;
+                System.out.println("File Path: " + path);
+                File dir = new File(path);
+                if (!dir.exists()) dir.mkdirs();
+                // 创建新的文件
+                if (!dir.exists()) dir.createNewFile();
+                FileOutputStream fos = new FileOutputStream(path + fileName);
+                fos.write(sb.toString().getBytes());
+                fos.close();
+            }
+            return fileName;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(TAG, "save"+type+"Info2File() an error occured while writing file... Exception:");
+        }
+        return null;
+    }
 }
