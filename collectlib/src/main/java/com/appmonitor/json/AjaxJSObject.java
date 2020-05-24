@@ -5,6 +5,7 @@ import com.appmonitor.adapter.JsonAdapter;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AjaxJSObject {
     @JavascriptInterface
@@ -26,7 +27,7 @@ public class AjaxJSObject {
     private JSONObject parseAjaxJSONObject(String jsonInfo){
         try{
             JSONObject jsonObject = new JSONObject(jsonInfo);
-            jsonObject.put("reportTime", new SimpleDateFormat().format("yyyy-MM-dd HH:mm:ss"));
+            jsonObject.put("reportTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             JSONObject payload = jsonObject.getJSONObject("payload");
             JSONObject performanceCounting = new JSONObject();
             long res_time = payload.getLong("res_time");

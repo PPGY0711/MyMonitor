@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class LoadingJSObject {
@@ -29,7 +30,7 @@ public class LoadingJSObject {
     public JSONObject parseLoadingJSONObject(String jsonInfo){
         try {
             JSONObject jsonObject = new JSONObject(jsonInfo);
-            jsonObject.put("reportTime", new SimpleDateFormat().format("yyyy-MM-dd HH:mm:ss"));
+            jsonObject.put("reportTime", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             JSONObject payload = jsonObject.getJSONObject("payload");
             JSONObject navigationTiming = payload.getJSONObject("navigationTiming");
             JSONObject performanceCounting = new JSONObject();
