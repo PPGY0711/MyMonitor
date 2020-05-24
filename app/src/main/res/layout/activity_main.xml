@@ -81,14 +81,14 @@
             android:onClick="onClickTestIndexOutOfBoundsException"
             android:text="Test IndexOutOfBoundsException" />
 
-        <Button
-            android:id="@+id/TestDateTimeException"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginBottom="10dp"
-            android:onClick="onClickTestDateTimeException"
-            android:text="Test DateTimeException" />
+<!--        <Button-->
+<!--            android:id="@+id/TestDateTimeException"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:onClick="onClickTestDateTimeException"-->
+<!--            android:text="Test DateTimeException" />-->
 
         <Button
             android:id="@+id/TestNegativeArraySizeException"

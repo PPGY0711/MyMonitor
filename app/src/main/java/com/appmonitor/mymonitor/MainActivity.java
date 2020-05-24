@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
         TestPackage.TestIndexOutOfBoundsException();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void onClickTestDateTimeException(View view){
-        TestPackage.TestDateTimeException();
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    public void onClickTestDateTimeException(View view){
+//        TestPackage.TestDateTimeException();
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onClickTestNegativeArraySizeException(View view){

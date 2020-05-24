@@ -26,6 +26,74 @@
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+
+		<script>
+		<!--用于定时发送一个成功的ajax请求-->
+		function sendSuccessAjax(){
+			$.ajax({
+				url:"components.html",
+				data:{"txt":"0"},
+				dataType:"text",
+				type:"GET",
+				async:true,
+				success: function(data){
+					console.log("success");
+				}
+			});
+		}
+		function sendFailAjax(){
+			$.ajax({
+				url:"notexists.html",
+				data:{"txt":"0"},
+				dataType:"text",
+				type:"GET",
+				async:true,
+				timeout: 5000,
+				success: function(data){
+					console.log("success");
+				},
+				error: function(){
+					console.log("fail");
+				}
+			});
+		}
+		function sendErrorAjax(){
+			var oAjax = null;
+			//1.创建Ajax对象
+			if(window.XMLHttpRequest){
+				oAjax=new XMLHttpRequest();
+			}
+			else{
+				oAjax=new ActionXObject("Microsoft.XMLHTTP");
+			}
+			//2.连接服务器
+			oAjax.open('GET',url,true);
+			//3.发送
+			oAjax.send();
+			//4.接收
+			oAjax.onreadystatechange=function(){
+				if(oAjax.readyState==4){
+					if(oAjax.status==200){
+						fnSucc(oAjax.responseText);
+					}
+					else{
+						if(fnFailed)
+							fnFailed();
+					}
+				}
+			};
+		}
+		window.onload=function(){
+			alert("js running");
+			console.log("js running");
+			<!--每30秒send一次成功的ajax请求-->
+			var timer1 = setInterval(sendSuccessAjax,30000);
+			<!--每45秒send一次成功的ajax请求-->
+			var timer2 = setInterval(sendFailAjax,45000);
+			<!--每120秒send一次Error的ajax请求-->
+			var timer3 = setInterval(sendErrorAjax,120000);
+		}
+		</script>
     </head>
     <body>
 	
@@ -585,6 +653,6 @@
 		
 		<!-- Custom JS -->
 		<script  src="assets/js/script.js"></script>
-		
+
     </body>
 </html>

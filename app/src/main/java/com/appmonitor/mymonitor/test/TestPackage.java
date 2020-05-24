@@ -54,11 +54,11 @@ public class TestPackage {
         int i = intarr.get(0);
     }
 
-    //7.DateTimeException LocalDateTime会抛出这个异常
-    public static void TestDateTimeException(){
-        //  日期时间格式书写错误,没有DD
-        SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("yyyy-MM-DD hh:mm:ss");
-    }
+//    //7.DateTimeException LocalDateTime会抛出这个异常
+//    public static void TestDateTimeException(){
+//        //  日期时间格式书写错误,没有DD
+//        SimpleDateFormat dateTimeFormatter = new SimpleDateFormat("yyyy-MM-DD hh:mm:ss");
+//    }
 
     //8.NegativeArraySizeException 创建一个负数的数组
     public static void TestNegativeArraySizeException(){
@@ -127,12 +127,12 @@ public class TestPackage {
             e.printStackTrace();
         }
 
-        try{
-            TestDateTimeException();
-        }catch (DateTimeException e){
-            System.out.println("[7]: DateTimeException");
-            e.printStackTrace();
-        }
+//        try{
+//            TestDateTimeException();
+//        }catch (DateTimeException e){
+//            System.out.println("[7]: DateTimeException");
+//            e.printStackTrace();
+//        }
 
         try{
             TestNegativeArraySizeException();
