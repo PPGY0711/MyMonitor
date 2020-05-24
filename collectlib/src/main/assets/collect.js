@@ -138,7 +138,7 @@ function readXPath(element) {
     });
 
      function sendAjaxData(e) {
-//         console.log(JSON.stringify(e));
+         console.log(JSON.stringify(e));
          ajaxObj.sendAjaxInfo(JSON.stringify(e))
      };
 })();
@@ -205,12 +205,12 @@ function readXPath(element) {
     };
 
     function sendResourceTiming(e) {
-//        console.log(JSON.stringify(e));
+        console.log(JSON.stringify(e));
         loadingObj.sendLoadingInfo(JSON.stringify(e))
     };
 
     function sendClickData(e) {
-//        console.log(JSON.stringify(e));
+        console.log(JSON.stringify(e));
         clickObj.sendClickInfo(JSON.stringify(e))
     };
 
@@ -279,7 +279,7 @@ function readXPath(element) {
                 }
             };
 
-//            console.log(JSON.stringify(errorInfo));
+            console.log(JSON.stringify(errorInfo));
             errorObj.sendErrorInfo(JSON.stringify(errorInfo))
         }
     };
@@ -382,7 +382,8 @@ function readXPath(element) {
             }
         }
     }();
-
+    console.log("Start WebView Monitor Here");
     e.startWebViewMonitor();
     e.addCollectEvent();
+    console.log("Execute the functions");
 } (this);
