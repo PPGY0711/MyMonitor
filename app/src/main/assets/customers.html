@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Ventura - Customers</title>
+		
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		
+		<!-- Feathericon CSS -->
+        <link rel="stylesheet" href="assets/css/feathericon.min.css">
+		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+		
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+		
+		<!-- Main Wrapper -->
+        <div class="main-wrapper">
+		
+			<!-- Header -->
+            <div class="header">
+			
+				<!-- Logo -->
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+						<img src="assets/img/logo.png" alt="Logo">
+					</a>
+					<a href="index.html" class="logo logo-small">
+						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+					</a>
+                </div>
+				<!-- /Logo -->
+				
+				<a href="javascript:void(0);" id="toggle_btn">
+					<i class="fe fe-text-align-left"></i>
+				</a>
+				
+				<div class="top-nav-search">
+					<form>
+						<input type="text" class="form-control" placeholder="Search here">
+						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+				
+				<!-- Mobile Menu Toggle -->
+				<a class="mobile_btn" id="mobile_btn">
+					<i class="fa fa-bars"></i>
+				</a>
+				<!-- /Mobile Menu Toggle -->
+				
+				<!-- Header Right Menu -->
+				<ul class="nav user-menu">
+
+					<!-- App Lists -->
+					<li class="nav-item dropdown app-dropdown">
+						<a class="nav-link dropdown-toggle" aria-expanded="false" role="button" data-toggle="dropdown" href="#"><i class="fe fe-app-menu"></i></a>
+						<ul class="dropdown-menu app-dropdown-menu">
+							<li>
+								<div class="app-list">
+									<div class="row">
+										<div class="col"><a class="app-item" href="inbox.html"><i class="fa fa-envelope"></i><span>Email</span></a></div>
+										<div class="col"><a class="app-item" href="calendar.html"><i class="fa fa-calendar"></i><span>Calendar</span></a></div>
+										<div class="col"><a class="app-item" href="chat.html"><i class="fa fa-comments"></i><span>Chat</span></a></div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<!-- /App Lists -->
+					
+					<!-- Notifications -->
+					<li class="nav-item dropdown noti-dropdown">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<i class="fe fe-bell"></i> <span class="badge badge-pill">3</span>
+						</a>
+						<div class="dropdown-menu notifications">
+							<div class="topnav-dropdown-header">
+								<span class="notification-title">Notifications</span>
+								<a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+							</div>
+							<div class="noti-content">
+								<ul class="notification-list">
+									<li class="notification-message">
+										<a href="#">
+											<div class="media">
+												<span class="avatar avatar-sm">
+													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
+												</span>
+												<div class="media-body">
+													<p class="noti-details"><span class="noti-title">Carlson Tech</span> has approved <span class="noti-title">your estimate</span></p>
+													<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="notification-message">
+										<a href="#">
+											<div class="media">
+												<span class="avatar avatar-sm">
+													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-11.jpg">
+												</span>
+												<div class="media-body">
+													<p class="noti-details"><span class="noti-title">International Software Inc</span> has sent you a invoice in the amount of <span class="noti-title">$218</span></p>
+													<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="notification-message">
+										<a href="#">
+											<div class="media">
+												<span class="avatar avatar-sm">
+													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-17.jpg">
+												</span>
+												<div class="media-body">
+												<p class="noti-details"><span class="noti-title">John Hendry</span> sent a cancellation request <span class="noti-title">Apple iPhone XR</span></p>
+												<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="notification-message">
+										<a href="#">
+											<div class="media">
+												<span class="avatar avatar-sm">
+													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-13.jpg">
+												</span>
+												<div class="media-body">
+													<p class="noti-details"><span class="noti-title">Mercury Software Inc</span> added a new product <span class="noti-title">Apple MacBook Pro</span></p>
+													<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="topnav-dropdown-footer">
+								<a href="#">View all Notifications</a>
+							</div>
+						</div>
+					</li>
+					<!-- /Notifications -->
+					
+					<!-- User Menu -->
+					<li class="nav-item dropdown has-arrow">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor"></span>
+						</a>
+						<div class="dropdown-menu">
+							<div class="user-header">
+								<div class="avatar avatar-sm">
+									<img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+								</div>
+								<div class="user-text">
+									<h6>Ryan Taylor</h6>
+									<p class="text-muted mb-0">Administrator</p>
+								</div>
+							</div>
+							<a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="profile.html">Account Settings</a>
+							<a class="dropdown-item" href="login.html">Logout</a>
+						</div>
+					</li>
+					<!-- /User Menu -->
+					
+				</ul>
+				<!-- /Header Right Menu -->
+				
+            </div>
+			<!-- /Header -->
+			
+			<!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+					<div id="sidebar-menu" class="sidebar-menu">
+						<ul>
+							<li class="menu-title"> 
+								<span>Main</span>
+							</li>
+							<li> 
+								<a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-cart"></i> <span> Ecommerce</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="products.html">Products</a></li>
+									<li><a href="product-details.html">Product View</a></li>
+									<li><a href="orders.html">Orders</a></li>
+									<li><a class="active" href="customers.html">Customers</a></li>
+									<li><a href="invoice.html">Invoice</a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-tiled"></i> <span> Application</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="chat.html">Chat</a></li>
+									<li><a href="calendar.html">Calendar</a></li>
+									<li><a href="inbox.html">Email</a></li>
+								</ul>
+							</li>
+							<li class="menu-title"> 
+								<span>Pages</span>
+							</li>
+							<li> 
+								<a href="profile.html"><i class="fe fe-user-plus"></i> <span>Profile</span></a>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-document"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="login.html"> Login </a></li>
+									<li><a href="register.html"> Register </a></li>
+									<li><a href="forgot-password.html"> Forgot Password </a></li>
+									<li><a href="lock-screen.html"> Lock Screen </a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-warning"></i> <span> Error Pages </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="error-404.html">404 Error </a></li>
+									<li><a href="error-500.html">500 Error </a></li>
+								</ul>
+							</li>
+							<li> 
+								<a href="users.html"><i class="fe fe-users"></i> <span>Users</span></a>
+							</li>
+							<li> 
+								<a href="blank-page.html"><i class="fe fe-file"></i> <span>Blank Page</span></a>
+							</li>
+							<li> 
+								<a href="maps-vector.html"><i class="fe fe-map"></i> <span>Vector Maps</span></a>
+							</li>
+							<li class="menu-title"> 
+								<span>UI Interface</span>
+							</li>
+							<li> 
+								<a href="components.html"><i class="fe fe-vector"></i> <span>Components</span></a>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="form-basic-inputs.html">Basic Inputs </a></li>
+									<li><a href="form-input-groups.html">Input Groups </a></li>
+									<li><a href="form-horizontal.html">Horizontal Form </a></li>
+									<li><a href="form-vertical.html"> Vertical Form </a></li>
+									<li><a href="form-mask.html"> Form Mask </a></li>
+									<li><a href="form-validation.html"> Form Validation </a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-table"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="tables-basic.html">Basic Tables </a></li>
+									<li><a href="data-tables.html">Data Table </a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li class="submenu">
+										<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>
+										<ul style="display: none;">
+											<li><a href="javascript:void(0);"><span>Level 2</span></a></li>
+											<li class="submenu">
+												<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
+												<ul style="display: none;">
+													<li><a href="javascript:void(0);">Level 3</a></li>
+													<li><a href="javascript:void(0);">Level 3</a></li>
+												</ul>
+											</li>
+											<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:void(0);"> <span>Level 1</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+                </div>
+            </div>
+			<!-- /Sidebar -->
+			
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row align-items-center">
+							<div class="col">
+								<h3 class="page-title">Customers</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item active">Customers</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+				
+					<div class="row">
+						<div class="col-sm-12">
+						
+							<div class="card card-table">
+								<div class="card-header">
+									<h4 class="card-title">List of Customers</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center">
+											<thead>
+												<tr>
+													<th>ID</th>
+													<th>Customer</th>
+													<th>Contact Person</th>
+													<th>Email</th>
+													<th>Sales</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>#CUS0001</td>
+													<td><a href="#">Carlson Tech</a></td>
+													<td>Betty Carlson</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="65070011111c06041709160a0b25001d04081509004b060a08">[email&#160;protected]</a></td>
+													<td>$1821</td>
+												</tr>
+												<tr>
+													<td>#CUS0002</td>
+													<td><a href="#">Delta Infotech</a></td>
+													<td>Tressa Wexler</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2450564157574553415c48415664415c45495448410a474b49">[email&#160;protected]</a></td>
+													<td>$7358</td>
+												</tr>
+												<tr>
+													<td>#CUS0003</td>
+													<td><a href="#">Global Technologies</a></td>
+													<td>Barry Cuda</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98faf9eaeae1fbedfcf9d8fde0f9f5e8f4fdb6fbf7f5">[email&#160;protected]</a></td>
+													<td>$752</td>
+												</tr>
+												<tr>
+													<td>#CUS0004</td>
+													<td><a href="#">International Software Inc</a></td>
+													<td>Walter Weaver</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a6d7b766e7f686d7f7b6c7f685a7f627b776a767f34797577">[email&#160;protected]</a></td>
+													<td>$22354</td>
+												</tr>
+												<tr>
+													<td>#CUS0005</td>
+													<td><a href="#">Mercury Software Inc</a></td>
+													<td>Amanda Warren</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e6878b87888287918794948388a6839e878b968a83c885898b">[email&#160;protected]</a></td>
+													<td>$6547</td>
+												</tr>
+												<tr>
+													<td>#CUS0006</td>
+													<td><a href="#">Gutmann Inc</a></td>
+													<td>Keith Williams</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="abc0cec2dfc3dcc2c7c7c2cac6d8ebced3cac6dbc7ce85c8c4c6">[email&#160;protected]</a></td>
+													<td>$618</td>
+												</tr>
+												<tr>
+													<td>#CUS0007</td>
+													<td><a href="#">Corkery Ltd</a></td>
+													<td>Thomas Norwood</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f4809c9b9995879a9b86839b9b90b4918c9599849891da979b99">[email&#160;protected]</a></td>
+													<td>$1204</td>
+												</tr>
+												<tr>
+													<td>#CUS0008</td>
+													<td><a href="#">Cartwright LLC</a></td>
+													<td>Jason Dimartino</td>
+													<td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e444f5d41404a47434f5c5a4740416e4b564f435e424b004d4143">[email&#160;protected]</a></td>
+													<td>$3258</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							
+						</div>					
+					</div>					
+				</div>			
+			</div>
+			<!-- /Page Wrapper -->
+			
+        </div>
+		<!-- /Main Wrapper -->
+		
+		<!-- jQuery -->
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.2.1.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- Slimscroll JS -->
+        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>
+		
+    </body>
+</html>
