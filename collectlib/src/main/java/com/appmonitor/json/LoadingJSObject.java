@@ -27,11 +27,7 @@ public class LoadingJSObject {
     public JSONObject parseLoadingJSONObject(String jsonInfo){
         try {
             JSONObject jsonObject = new JSONObject(jsonInfo);
-//                String type = jsonObject.getString("type");
             JSONObject payload = jsonObject.getJSONObject("payload");
-//                String url = payload.getString("url");
-//                String domain = payload.getString("domain");
-//                String uri = payload.getString("uri");
             JSONObject navigationTiming = payload.getJSONObject("navigationTiming");
             JSONObject performanceCounting = new JSONObject();
             if(navigationTiming.length()!=0){
@@ -126,8 +122,6 @@ public class LoadingJSObject {
                 double fetchStart = resourceObject.getDouble("fetchStart");
                 String initiatorType = resourceObject.getString("initiatorType");
                 String name = resourceObject.getString("name");
-                String nextHopProtocol = resourceObject.getString("nextHopProtocol");
-                long transforSize = resourceObject.getLong("transforSize");
                 double redirectEnd = resourceObject.getDouble("redirectEnd");
                 double redirectStart = resourceObject.getDouble("redirectStart");
                 double requestStart = resourceObject.getDouble("requestStart");
@@ -145,8 +139,6 @@ public class LoadingJSObject {
                 jsonObject.put("entryType",entryType);
                 jsonObject.put("initiatorType",initiatorType);
                 jsonObject.put("name",name);
-                jsonObject.put("nextHopProtocol",nextHopProtocol);
-                jsonObject.put("transforSize",transforSize);
                 jsonArray.put(jsonObject);
             }
         }catch (Exception e){

@@ -20,7 +20,7 @@ public class SecondActivity extends AppCompatActivity {
 
         webView = findViewById(R.id.testWebView);
         webView.setWebViewClient(new WebViewClient());
-        String url = "file:////android_asset/testWebViewMonitor.html";
+        String url = "file:////android_asset/index.html";
         webView.loadUrl(url);
     }
 
