@@ -22,7 +22,7 @@ function readXPath(element) {
     }
 };
 
-;(function () {
+(function () {
     if ( typeof window.CustomEvent === "function" ) return false;
     function CustomEvent ( event, params ) {
      params = params || { bubbles: false, cancelable: false, detail: undefined };
@@ -34,7 +34,7 @@ function readXPath(element) {
     window.CustomEvent = CustomEvent;
 })();
 
-;(function () {
+(function () {
     // var times = 0;
     function ajaxEventTrigger(event) {
      var ajaxEvent = new CustomEvent(event, { detail: this });
@@ -143,7 +143,7 @@ function readXPath(element) {
      };
 })();
 
-!function(e) {
+(function(e) {
 
     var intervalTime = 3000; //ms
     var hrefUrl = e.location.href;
@@ -382,6 +382,7 @@ function readXPath(element) {
             }
         }
     }();
+
     console.log("Start WebView Monitor Here");
     e.startWebViewMonitor();
     e.addCollectEvent();

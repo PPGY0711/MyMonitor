@@ -18,6 +18,10 @@ public class MyWebViewClient extends WebViewClient {
                     "       script.setAttribute('type','text/javascript');  " +
                     "       script.setAttribute('src', '" + injectJs + "'); " +
                     "       document.head.appendChild(script); " +
+                    "       script.onload = function() {" +
+                    "           window.startWebViewMonitor();" +
+                    "           window.addCollectEvent();" +
+                    "       }; " +
                     "    }" +
                     "    )();";
 
