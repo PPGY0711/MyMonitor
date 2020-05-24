@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstActivity">
+    tools:context=".SecondActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -14,57 +14,51 @@
         android:text="App Monitor TestApp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
+        android:id="@+id/Linearlayout"
         android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:divider="@drawable/spacer_medium"
+        android:layout_height="667dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="2dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/JumpToSecondActivity"
+        <WebView
+            android:id="@+id/testWebView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:onClick="onClickToSecondActivity"
-            android:text="Jump To Second Activity"
-            android:textColor="@color/colorPrimaryDark" />
+            android:layout_height="450dp" />
 
         <Button
             android:id="@+id/JumpToMainActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:onClick="onClickToMainActivity"
             android:text="Jump To Main Activity"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"/>
 
         <Button
-            android:id="@+id/generateUiANRCrashBtn"
+            android:id="@+id/JumpToFirstActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:onClick="onClickUiThreadGenerateANRCrash"
-            android:text="generate ANR Crash" />
-
-        <Button
-            android:id="@+id/generateCatonCrash"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickGenerateCatonCrash"
-            android:text="Generate Caton Crash" />
-
-
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:onClick="onClickToFirstActivity"
+            android:text="Jump To First Activity"
+            android:textColor="@color/colorPrimaryDark"/>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

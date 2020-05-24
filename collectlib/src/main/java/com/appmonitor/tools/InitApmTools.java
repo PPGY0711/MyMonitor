@@ -58,6 +58,8 @@ public class InitApmTools {
         Caton.Builder builder = new Caton.Builder(context)
                 .monitorMode(mode)//默认监测模式为Caton.MonitorMode.LOOPER，这样指定Caton.MonitorMode.FRAME
                 .loggingEnabled(true)// 是否打印log
+                .collectInterval(1000) //监测采集堆栈时间间隔
+                .thresholdTime(2000) // 触发卡顿时间阈值
                 .callback(new Caton.Callback() { //设置触发卡顿时回调
                     @Override
                     public void onBlockOccurs(String[] stackTraces, String anr, long... blockArgs) {
@@ -82,7 +84,10 @@ public class InitApmTools {
 								}
 							}
 							catonObject.put("stackTraces",anrStackTraces);
-                            if(anr != null && anr!=""){
+							System.out.println(" ======================= ANRINFO OF CRASH: ============== ");
+							System.out.println(anr);
+                            System.out.println(" ======================= ANRINFO OF CRASH: ============== ");
+                            if(!anr.equals("")){
 								catonObject.put("anrInfo",anr);
                                 catonObject.put("type","anrError");
                             }

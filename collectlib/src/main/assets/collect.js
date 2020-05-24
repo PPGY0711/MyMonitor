@@ -383,6 +383,6 @@ function readXPath(element) {
         }
     }();
 
-//    e.startWebViewMonitor();
-//    e.addCollectEvent();
+    e.startWebViewMonitor();
+    e.addCollectEvent();
 } (this);

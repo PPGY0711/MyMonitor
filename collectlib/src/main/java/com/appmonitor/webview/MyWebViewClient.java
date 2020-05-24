@@ -9,7 +9,7 @@ public class MyWebViewClient extends WebViewClient {
         super.onPageFinished(view, url);
         view.getSettings().setJavaScriptEnabled(true);
         //TODO collector.js文件的地址，收集的功能主要在这里面实现
-        String injectJs = "file:////android_asset/collect.js";
+        String injectJs = "https://github.com/PPGY0711/MyMonitor/blob/master/collectlib/src/main/assets/collect.js";
         System.out.println("set MyWebViewClient");
         if(!injectJs.equals("")) {
             String msg = "javascript:" +
@@ -18,10 +18,6 @@ public class MyWebViewClient extends WebViewClient {
                     "       script.setAttribute('type','text/javascript');  " +
                     "       script.setAttribute('src', '" + injectJs + "'); " +
                     "       document.head.appendChild(script); " +
-                    "       script.onload = function() {" +
-                    "           startWebViewMonitor();" +
-                    "           addCollectEvent();" +
-                    "       }; " +
                     "    }" +
                     "    )();";
 

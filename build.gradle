@@ -21,7 +21,7 @@ allprojects {
         google()
         jcenter()
         maven {//local maven repo path
-            url uri('D:/Android/repos')
+            url uri('https://jitpack.io')
         }
     }
 }

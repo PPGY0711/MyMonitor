@@ -142,11 +142,11 @@ class CheckThread implements Runnable{
 
     @Override
     public void run() {
-        //每两分钟检查一次，如果有长度为10的list，就取出来传到MongoDB中去
+        //每一分钟检查一次，如果有长度为10的list，就取出来传到MongoDB中去
         while(running){
             try{
-                System.out.println("\n************************** Keys in redis will be upload after two minutes. ************************* \n");
-                Thread.sleep(120000);
+                System.out.println("\n************************** Keys in redis will be upload after one minute. ************************* \n");
+                Thread.sleep(60000);
             }catch (Exception e){
                 e.printStackTrace();
             }
