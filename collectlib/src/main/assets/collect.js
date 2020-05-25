@@ -47,7 +47,11 @@ function readXPath(element) {
 
     function newXHR() {
         var realXHR = new oldXHR();
-
+        realXHR.detailResponse = "";
+        realXHR.detailResponseType = "";
+        realXHR.detailResponseText = "";
+        realXHR.detailResponseURL = "";
+        realXHR.detail_ty_rum = new Object();
         realXHR.abort_time = 0;
         realXHR.isAbort = !1;
         realXHR.isTimeout = !1;
@@ -116,14 +120,24 @@ function readXPath(element) {
     window.addEventListener("ajaxLoadEnd",function(e){
         e.detail.cb_end_time = e.detail.res_time = e.detail.lastbyte_time = (new Date()).valueOf();
 //        console.log("ajaxLoadEnd: "+ e.detail.res_time);
+//        e.detail.detailResponse = e.detail.response;
+//        e.detail.detailResponseType = e.detail.responseType;
+//        e.detail.detailResponseText = e.detail.responseText;
+//        e.detail.detailResponseURL = e.detail.responseURL;
+//        e.detail.detail_ty_rum = e.detail._ty_rum;
         ajaxEventTrigger.call(e.detail,'ajaxRequestEnd');
     });
 
     window.addEventListener("ajaxReadyStateChange",function(e){
         var i = e.detail.state_change_time.length + 1;
         e.detail.state_change_time.push({state: e.detail.readyState, status: e.detail.status, time: (new Date()).valueOf()});
-        if(e.detail.readyState === 4 && e.detail.status){
-//            console.log(e.detail);
+        if(e.detail.readyState === 4){
+            e.detail.detailResponse = e.detail.response;
+            e.detail.detailResponseType = e.detail.responseType;
+            e.detail.detailResponseText = e.detail.responseText;
+            e.detail.detailResponseURL = e.detail.responseURL;
+            e.detail.detail_ty_rum = e.detail._ty_rum;
+//            console.log(e.detail.responseURL);
         }
     });
 
@@ -132,6 +146,9 @@ function readXPath(element) {
 //        console.log(e.detail);
         var ajaxData = {
             type : "WebViewMonitor_ajax",
+			url	 : window.location.href,
+			uri  : window.location.pathname,
+			domain: window.location.hostname,
             payload : e.detail
         }
          sendAjaxData(ajaxData);
@@ -229,6 +246,9 @@ function readXPath(element) {
                 var element = readXPath(this);
                 var clickRecord = {
                     type : "WebViewMonitor_click",
+					url	 : hrefUrl,
+					uri  : pathname,
+					domain: hostname,
                     payload : {
                         elementTagName: "a",
                         elementXPATH: element,
@@ -254,6 +274,9 @@ function readXPath(element) {
             var click_time = (new Date()).valueOf();
             var clickRecord = {
                 type : "WebViewMonitor_click",
+				url	 : hrefUrl,
+				uri  : pathname,
+				domain: hostname,
                 payload : {
                     elementTagName : tagName,
                     elementXPATH: element,
