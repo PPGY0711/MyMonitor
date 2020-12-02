@@ -104,8 +104,7 @@ function readXPath(element) {
     });
 
     window.addEventListener("ajaxLoadStart",function(e){
-        e.detail.cb_start_time = e.detail.req_time = e.detail.firstbyte_time = (new Date()).valueOf();
-//        console.log("ajaxLoadStart: "+e.detail.req_time);
+        e.detail.req_time = (new Date()).valueOf();
     });
 
     window.addEventListener("ajaxProgress",function(e){
@@ -118,26 +117,22 @@ function readXPath(element) {
     });
 
     window.addEventListener("ajaxLoadEnd",function(e){
-        e.detail.cb_end_time = e.detail.res_time = e.detail.lastbyte_time = (new Date()).valueOf();
-//        console.log("ajaxLoadEnd: "+ e.detail.res_time);
-//        e.detail.detailResponse = e.detail.response;
-//        e.detail.detailResponseType = e.detail.responseType;
-//        e.detail.detailResponseText = e.detail.responseText;
-//        e.detail.detailResponseURL = e.detail.responseURL;
-//        e.detail.detail_ty_rum = e.detail._ty_rum;
+        e.detail.cb_end_time = (new Date()).valueOf();
         ajaxEventTrigger.call(e.detail,'ajaxRequestEnd');
     });
 
     window.addEventListener("ajaxReadyStateChange",function(e){
         var i = e.detail.state_change_time.length + 1;
         e.detail.state_change_time.push({state: e.detail.readyState, status: e.detail.status, time: (new Date()).valueOf()});
+        if(e.detail.readyState === 3)
+            e.detail.firstbyte_time = (new Date()).valueOf();
         if(e.detail.readyState === 4){
+            e.detail.cb_start_time = e.detail.res_time = e.detail.lastbyte_time = (new Date()).valueOf();
             e.detail.detailResponse = e.detail.response;
             e.detail.detailResponseType = e.detail.responseType;
             e.detail.detailResponseText = e.detail.responseText;
             e.detail.detailResponseURL = e.detail.responseURL;
             e.detail.detail_ty_rum = e.detail._ty_rum;
-//            console.log(e.detail.responseURL);
         }
     });
 
@@ -396,7 +391,11 @@ function readXPath(element) {
                     eInfo.msg = e.message,
                     eInfo.line = e.lineno,
                     eInfo.column = e.colno,
-                    e.error ? (eInfo.type = e.error.name, eInfo.stack = e.error.stack) : (eInfo.msg.indexOf("Uncaught ") > -1 ? eInfo.stack = eInfo.msg.split("Uncaught ")[1] + " at " + eInfo.url + ":" + eInfo.line + ":" + eInfo.column: eInfo.stack = eInfo.msg + " at " + eInfo.url + ":" + eInfo.line + ":" + eInfo.column, eInfo.type = eInfo.stack.slice(0, eInfo.stack.indexOf(":"))),
+                    e.error ? (eInfo.type = e.error.name, eInfo.stack = e.error.stack) :
+                    (eInfo.msg.indexOf("Uncaught ") > -1 ?
+                    eInfo.stack = eInfo.msg.split("Uncaught ")[1] + " at " + eInfo.url + ":" + eInfo.line + ":"
+                    + eInfo.column: eInfo.stack = eInfo.msg + " at " + eInfo.url + ":" + eInfo.line + ":"
+                     + eInfo.column, eInfo.type = eInfo.stack.slice(0, eInfo.stack.indexOf(":"))),
                 eInfo.type.toLowerCase().indexOf("script error") > -1 && (eInfo.type = "ScriptError"),
                     errors.push(eInfo);
             }, !1), {

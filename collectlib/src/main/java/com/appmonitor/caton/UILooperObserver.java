@@ -30,8 +30,10 @@ public class UILooperObserver implements Printer {
                 long messageElapseTime = SystemClock.elapsedRealtime() - mPreMessageTime;
                 long threadElapseTime = SystemClock.currentThreadTimeMillis() - mPreThreadTime;
                 if (messageElapseTime > Config.THRESHOLD_TIME) {
-                    log(TAG, String.format("messageElapseTime : %s, threadElapseTime : %s", messageElapseTime, threadElapseTime));
-                    mBlockHandler.notifyBlockOccurs(messageElapseTime >= ANR_TRIGGER_TIME, messageElapseTime, threadElapseTime);
+                    log(TAG, String.format("messageElapseTime : %s, threadElapseTime : %s"
+                            , messageElapseTime, threadElapseTime));
+                    mBlockHandler.notifyBlockOccurs(messageElapseTime >= ANR_TRIGGER_TIME
+                            , messageElapseTime, threadElapseTime);
                 }
             }
         }

@@ -91,18 +91,17 @@ class DeviceInfoUtils {
         return Build.TYPE;
     }
 
-
+    /**
+     * 设备硬件及状态信息收集函数
+     * @param context
+     * @return
+     */
     protected static Map<String, String> getDeviceAllInfo(Context context) {
+        //获取硬件信息
         Map<String, String> deviceInfo = new HashMap<String, String>();
         deviceInfo.put("deviceID",uuid.toString());
         deviceInfo.put("deviceWidth", getDeviceWidth().toString());
         deviceInfo.put("deviceHeight", getDeviceHeight().toString());
-        deviceInfo.put("isSDCardMount", SDCardUtils.isSDCardMount().toString());
-        deviceInfo.put("RAM", SDCardUtils.getRAMInfo());
-        deviceInfo.put("externalMemory", SDCardUtils.getTotalExternalMemorySize());
-        deviceInfo.put("externalAvailableMemory", SDCardUtils.getAvailableExternalMemorySize());
-        deviceInfo.put("internalMemory", SDCardUtils.getTotalInternalMemorySize());
-        deviceInfo.put("internalAvailableMemory", SDCardUtils.getAvailableInternalMemorySize());
         deviceInfo.put("defaultLanguage", getDeviceDefaultLanguage());
         deviceInfo.put("serialNum", android.os.Build.SERIAL);
         deviceInfo.put("manufacturer", android.os.Build.MANUFACTURER);
@@ -122,6 +121,13 @@ class DeviceInfoUtils {
         deviceInfo.put("board",   android.os.Build.BOARD);
         deviceInfo.put("codeName", android.os.Build.VERSION.CODENAME);
 		deviceInfo.put("CPU_ABI",android.os.Build.CPU_ABI);
+        //获取内存状态信息
+        deviceInfo.put("isSDCardMount", SDCardUtils.isSDCardMount().toString());
+        deviceInfo.put("RAM", SDCardUtils.getRAMInfo());
+        deviceInfo.put("externalMemory", SDCardUtils.getTotalExternalMemorySize());
+        deviceInfo.put("externalAvailableMemory", SDCardUtils.getAvailableExternalMemorySize());
+        deviceInfo.put("internalMemory", SDCardUtils.getTotalInternalMemorySize());
+        deviceInfo.put("internalAvailableMemory", SDCardUtils.getAvailableInternalMemorySize());
         return deviceInfo;
     }
 }

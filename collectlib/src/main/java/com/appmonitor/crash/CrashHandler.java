@@ -131,9 +131,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         logArrayMap.put("WebViewMonitor_resourceTiming",webviewTimingArray);
         logArrayMap.put("WebViewMonitor_click",webviewClickArray);
     }
+
     /**
      * 初始化
-     *
      * @since V1.0
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)

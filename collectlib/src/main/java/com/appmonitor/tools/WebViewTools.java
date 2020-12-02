@@ -11,17 +11,14 @@ import com.appmonitor.webview.MyWebView;
 import com.appmonitor.webview.MyWebViewClient;
 
 public class WebViewTools {
-
+    //通过JavascriptInterface为WebView注入Java类对象
     public static void setUpWithWebView(WebView webView, WebViewClient webViewClient){
-        System.out.println("before set webviewclient");
-//        System.out.println(new MyWebView(InitApmTools.getAppContext()) instanceof WebView);
-        webView.addJavascriptInterface(new LoadingJSObject(),"loadingObj");
-        webView.addJavascriptInterface(new ErrorJSObject(),"errorObj");
-        webView.addJavascriptInterface(new AjaxJSObject(),"ajaxObj");
-        webView.addJavascriptInterface(new ClickJSObject(),"clickObj");
+        webView.addJavascriptInterface(new LoadingJSObject(),"loadingObj"); //页面加载时间数据
+        webView.addJavascriptInterface(new ErrorJSObject(),"errorObj");     //JS脚本错误
+        webView.addJavascriptInterface(new AjaxJSObject(),"ajaxObj");       //Ajax性能数据
+        webView.addJavascriptInterface(new ClickJSObject(),"clickObj");     //点击流数据
         webView.setWebViewClient(new MyWebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
-        System.out.println("after set webviewclient");
     }
 
 }

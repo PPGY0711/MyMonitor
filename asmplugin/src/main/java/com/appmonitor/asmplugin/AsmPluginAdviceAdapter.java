@@ -18,7 +18,10 @@ public class AsmPluginAdviceAdapter extends AdviceAdapter {
     @Override
     public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
         if(owner.equals("android/webkit/WebView") && name.equals("setWebViewClient"))
-            super.visitMethodInsn(184, "com/appmonitor/tools/WebViewTools", "setUpWithWebView", "(Landroid/webkit/WebView;Landroid/webkit/WebViewClient;)V", itf);
+            super.visitMethodInsn(184,
+                    "com/appmonitor/tools/WebViewTools",
+                    "setUpWithWebView",
+                    "(Landroid/webkit/WebView;Landroid/webkit/WebViewClient;)V", itf);
         else
             super.visitMethodInsn(opcode,owner,name,desc,itf);
     }
